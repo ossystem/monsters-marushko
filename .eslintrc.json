@@ -1,0 +1,75 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "promise"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:promise/recommended",
+    "plugin:node/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "linebreak-style": [
+      1,
+      "unix"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "no-unused-vars": [
+      1,
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 1
+      }
+    ],
+    "no-empty": [
+      2,
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "no-process-exit": 0,
+    "no-extra-boolean-cast": 0,
+    "promise/catch-or-return": 0,
+    "node/exports-style": [
+      2,
+      "module.exports"
+    ],
+    "node/prefer-global/buffer": [
+      2,
+      "always"
+    ],
+    "node/prefer-global/console": [
+      2,
+      "always"
+    ],
+    "node/prefer-global/process": [
+      2,
+      "always"
+    ],
+    "node/prefer-global/url-search-params": [
+      2,
+      "always"
+    ],
+    "node/prefer-global/url": [
+      2,
+      "always"
+    ]
+  }
+}
