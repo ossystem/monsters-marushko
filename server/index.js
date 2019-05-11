@@ -39,14 +39,9 @@ app.use(helmet());
 app.use(sanitizer());
 app.use(cookieParser());
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
+app.use(express.static('public'));
 
 app.set('trust proxy', true);
-
-// Initializing routes for handling all valid requests
-// TODO: Add routes
-
-// Initializing special route for testing server accessibility
-app.get('/', (req, res) => res.status(200).end('OK'));
 
 // Initializing routes for handling any errors
 errorHandlers.applyTo(app);

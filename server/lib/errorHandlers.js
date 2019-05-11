@@ -27,7 +27,7 @@ const applyTo = app => {
 
     res
       .status(status)
-      .text(errorDescription);
+      .send(errorDescription);
   });
 
   return app;

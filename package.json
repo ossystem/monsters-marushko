@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch": "RUNNING_MODE=development webpack --watch",
+    "build": "webpack",
     "debug": "nodemon ./server/index.js",
     "start": "node ./server/index.js",
     "create": "./node_modules/.bin/sequelize db:create",
@@ -13,6 +15,12 @@
   "keywords": [],
   "author": "Vitalii Marushko <vi.marushko@gmail.com>",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/preset-react"
+    ]
+  },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
@@ -27,12 +35,24 @@
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
     "rate-limiter-flexible": "^1.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0",
     "sequelize-hierarchy": "^2.0.4",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1"
   }
 }
