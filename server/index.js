@@ -14,6 +14,7 @@ const db = require('./db');
 const rateLimit = require('./lib/middlewares/rateLimiter');
 const errorHandlers = require('./lib/errorHandlers');
 const {PROTOCOL} = require('./lib/constants/main');
+const routes = require('./routes');
 const pid = process.pid;
 const {
   isDevelopment,
@@ -42,6 +43,9 @@ app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 app.use(express.static('public'));
 
 app.set('trust proxy', true);
+
+// Initializing routes for processing business logic
+routes.applyTo(app);
 
 // Initializing routes for handling any errors
 errorHandlers.applyTo(app);
