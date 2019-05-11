@@ -7,8 +7,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const sanitizer = require('express-sanitizer');
 const cookieParser = require('cookie-parser');
-const path = require('path');
-const favicon = require('serve-favicon');
 const requestId = require('express-request-id');
 const db = require('./db');
 const rateLimit = require('./lib/middlewares/rateLimiter');
@@ -39,7 +37,6 @@ app.use(express.urlencoded(bodyParser.urlencoded));
 app.use(helmet());
 app.use(sanitizer());
 app.use(cookieParser());
-app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 app.use(express.static('public'));
 
 app.set('trust proxy', true);

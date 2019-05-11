@@ -42,8 +42,7 @@
     "react-dom": "^16.5.2",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0",
-    "sequelize-hierarchy": "^2.0.4",
-    "serve-favicon": "^2.5.0"
+    "sequelize-hierarchy": "^2.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",

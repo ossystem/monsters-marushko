@@ -1,3 +1,10 @@
+const errorMessages = {
+  401: 'Unauthorized',
+  404: 'Route not found',
+  429: 'Request limit exceeded',
+  500: 'Server error'
+};
+
 const applyTo = app => {
   if (!app || (app && (typeof app.use !== 'function'))) {
     console.error('Express error handlers haven\'t been initialized.');
@@ -11,23 +18,12 @@ const applyTo = app => {
   app.use((err, req, res, next) => {
     console.error(err);
 
-    let errorDescription = '';
     const status = err.status || 500;
-
-    switch (status) {
-      case 404:
-        errorDescription = `Route not found`;
-        break;
-      case 429:
-        errorDescription = `Request limit exceeded`;
-        break;
-      default:
-        errorDescription = `Server error`;
-    }
 
     res
       .status(status)
-      .send(errorDescription);
+      .set('Content-Type', 'text/plain;charset=utf-8')
+      .send(errorMessages[status]);
   });
 
   return app;
