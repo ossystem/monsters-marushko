@@ -8,18 +8,8 @@ module.exports = {
     port: process.env.PORT || 3000
   },
   auth: {
-    accessToken: {
-      secret: '6e5934af6ba846948c7eb11c0e173bac',
-      expiredAfter: {
-        min: process.env.ACCESS_TOKEN_EXPIRED_MIN || 10 * 60 * 1000,  // ms
-        max: process.env.ACCESS_TOKEN_EXPIRED_MAX || 20 * 60 * 1000  // ms
-      },
-      algorithm: 'HS256'  // https://www.npmjs.com/package/jsonwebtoken
-    },
-    refreshToken: {
-      secret: '130a0c3a50b74f7db66f6dc2e4abd5eb',
-      algorithm: 'HS512'
-    }
+    secret: '6e5934af6ba846948c7eb11c0e173bac',
+    algorithm: 'HS256'  // https://www.npmjs.com/package/jsonwebtoken
   },
   middlewares: {
     rateLimit: {  // https://www.npmjs.com/package/rate-limiter-flexible

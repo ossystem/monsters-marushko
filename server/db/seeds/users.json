@@ -1,8 +1,8 @@
 [
   {
     "id": "03638e3b-f32f-49a5-b95d-0779bee0f834",
-    "username": "kris_evans",
     "email": "kris.evans@avengers.com",
+    "token": null,
     "passwordHash": "954faf8a7d4b702f1ce18c8ecc0d4bd3637afcde5175dff8d5b1427804d9002552793603e4bc697a0beaa1fb98b6b111d1fc7a97dd563bf65258e7b9bd20d2f1",
     "passwordSalt": "b55c6be20482ba2b328858eec02d5dc5ce3d7c9af49e584593c4f09fee4cd7c1",
     "createdAt": 1544353196000,
@@ -10,8 +10,8 @@
   },
   {
     "id": "b99fc45a-b539-4d15-885b-3d053360d9dc",
-    "username": "robert_downey_jn",
     "email": "robert.downey.jn@avengers.com",
+    "token": null,
     "passwordHash": "954faf8a7d4b702f1ce18c8ecc0d4bd3637afcde5175dff8d5b1427804d9002552793603e4bc697a0beaa1fb98b6b111d1fc7a97dd563bf65258e7b9bd20d2f1",
     "passwordSalt": "b55c6be20482ba2b328858eec02d5dc5ce3d7c9af49e584593c4f09fee4cd7c1",
     "createdAt": 1544353196000,

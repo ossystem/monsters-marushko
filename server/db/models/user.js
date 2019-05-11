@@ -1,4 +1,6 @@
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const { auth } = require('../../configs');
 
 module.exports = (sequelize, dataTypes) => {
   const Model = sequelize.define('user', {
@@ -10,11 +12,6 @@ module.exports = (sequelize, dataTypes) => {
       validate: {
         isUUID: 4
       }
-    },
-    username: {
-      type: dataTypes.STRING,
-      allowNull: false,
-      unique: true
     },
     email: {
       type: dataTypes.STRING,
@@ -28,6 +25,9 @@ module.exports = (sequelize, dataTypes) => {
     passwordSalt: {
       type: dataTypes.STRING(64),
       allowNull: false
+    },
+    token: {
+      type: dataTypes.STRING
     },
     createdAt: {
       type: dataTypes.BIGINT,
@@ -54,7 +54,6 @@ module.exports = (sequelize, dataTypes) => {
       }
     },
     indexes: [
-      {fields: ['username']},
       {fields: ['email']}
     ]
   });
@@ -95,6 +94,28 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     return result;
+  };
+
+  Model.generateTokens = userId => {
+    let token = false;
+    const {
+      secret,
+      algorithm
+    } = auth;
+
+    if (!userId) {
+      return token;
+    }
+
+    try {
+      token = jwt.sign({
+        userId
+      }, secret, {
+        algorithm
+      });
+    } catch (ex) {}
+
+    return token;
   };
 
   Model.prototype.isValidPassword = function (password) {

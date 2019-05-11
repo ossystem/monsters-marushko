@@ -1,4 +1,5 @@
 const errorMessages = {
+  400: 'Invalid parameters',
   401: 'Unauthorized',
   404: 'Route not found',
   429: 'Request limit exceeded',

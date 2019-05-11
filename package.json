@@ -34,6 +34,7 @@
     "express-request-id": "^1.4.1",
     "express-sanitizer": "^1.0.5",
     "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.5.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
