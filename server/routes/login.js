@@ -24,7 +24,7 @@ const login = app => {
         username: email,
         password: password,
         audience: auth.auth0AudienceUrl,
-        scope: 'read:current_user',
+        scope: 'openid',
         client_id: auth.auth0ClientId,
         client_secret: auth.auth0ClientSecret,
         realm: auth.auth0Realm

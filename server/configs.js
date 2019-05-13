@@ -86,7 +86,7 @@ module.exports = {
       charset: 'utf8mb4',  // this charset is required for storing any special chars in DB
       underscored: false,
       timestamps: false,
-      paranoid: true
+      paranoid: false
     },
     sync: {
       force: true

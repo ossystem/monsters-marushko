@@ -1,5 +1,4 @@
 module.exports = {
   'config': './server/db/sequelize.js',
-  'models-path': './server/db/models',
-  'seeders-path': './server/db/seeders'
+  'models-path': './server/db/models'
 }

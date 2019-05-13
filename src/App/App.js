@@ -32,9 +32,11 @@ class App extends Component {
 
     const responseData = await response.json();
 
-    if (!responseData || !responseData.status) {
+    if (!responseData || !responseData.success || !responseData.id_token) {
       return;
     }
+
+    localStorage.setItem('id_token', responseData.id_token);
 
     // TODO: Show working page after login
   }
