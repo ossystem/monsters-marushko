@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import constants from '../constants';
-import './SignUp.css';
+import './SignInPage.css';
 
-class SignUp extends Component {
+class SignInPage extends Component {
   constructor (props) {
     super(props);
 
@@ -76,4 +76,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default SignInPage;

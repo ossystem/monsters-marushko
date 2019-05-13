@@ -1,15 +1,45 @@
-import React from 'react';
-import ButtonNext from '../ButtonNext/ButtonNext';
+import React, {Component} from 'react';
+import Pager from '../Pager/Pager';
+import StartPage from '../StartPage/StartPage';
+import SignInPage from '../SignInPage/SignInPage';
 import './App.css';
 
-const App = () => {
-  return (
-    <div className="container">
-      <img className="top-logo" src="img/start_logo.png" alt=""/>
-      <img className="all-monsters" src="img/page_1_monsters.png" alt=""/>
-      <ButtonNext text="Start"/>
-    </div>
-  );
-};
+class App extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      idToken: localStorage.getItem('id_token'),
+      appStarted: false
+    };
+
+    // this._showNextPage = this.showNextPage.bind(this);
+  }
+
+  // showNextPage () {
+  //
+  // }
+
+  render () {
+    let insideComponent;
+    const {idToken, appStarted} = this.state;
+
+    if (appStarted) {
+      if (idToken) {
+        insideComponent = <Pager/>;
+      } else {
+        insideComponent = <SignInPage/>
+      }
+    } else {
+      insideComponent = <StartPage/>;
+    }
+
+    return (
+      <div className="main-container">
+        {insideComponent}
+      </div>
+    );
+  }
+}
 
 export default App;

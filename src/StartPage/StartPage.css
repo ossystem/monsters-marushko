@@ -1,0 +1,15 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-logo {
+  margin: 50px;
+  width: 850px
+}
+
+.all-monsters {
+  width: 1150px
+}
