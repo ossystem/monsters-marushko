@@ -80,6 +80,7 @@
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "no-console": 0,
-    "no-undef": 0
+    "no-undef": 0,
+    "node/no-extraneous-require": 0
   }
 }

@@ -1,6 +1,7 @@
 const errorMessages = {
   400: 'Invalid parameters',
   401: 'Unauthorized',
+  403: 'Invalid parameters',
   404: 'Route not found',
   429: 'Request limit exceeded',
   500: 'Server error'
@@ -23,8 +24,11 @@ const applyTo = app => {
 
     res
       .status(status)
-      .set('Content-Type', 'text/plain;charset=utf-8')
-      .send(errorMessages[status]);
+      .set('Content-Type', 'application/json;charset=utf-8')
+      .send({
+        status: false,
+        message: errorMessages[status]
+      });
   });
 
   return app;

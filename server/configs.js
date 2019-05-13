@@ -1,21 +1,45 @@
-const {ENVIRONMENT, PROTOCOL} = require('./lib/constants/main');
+const {
+  ENVIRONMENT: { DEV, PROD },
+  PROTOCOL: { HTTP }
+} = require('./lib/constants/main');
+
+const {
+  NODE_ENV = PROD,
+  PROTOCOL = HTTP,
+  PORT = 3000,
+  AUTH0_CLIENT_ID,
+  AUTH0_CLIENT_SECRET,
+  AUTH0_DOMAIN,
+  RATE_LIMIT_MAX = 10,
+  RATE_LIMIT_WINDOW = 1,
+  RATE_LIMIT_BLOCK_DURATION = 60 * 60 * 24,
+  CORS_ENABLED = true,
+  DB_HOST = 'localhost',
+  DB_USERNAME = 'root',
+  DB_PASSWORD = '1',
+  DB_DATABASE
+} = process.env;
 
 module.exports = {
-  isDevelopment: process.env.NODE_ENV === ENVIRONMENT.DEV,
+  isDevelopment: NODE_ENV === DEV,
   server: {
-    protocol: process.env.PROTOCOL || PROTOCOL.HTTP,
+    protocol: PROTOCOL,
     host: '0.0.0.0',
-    port: process.env.PORT || 3000
+    port: PORT
   },
   auth: {
-    secret: '6e5934af6ba846948c7eb11c0e173bac',
-    algorithm: 'HS256'  // https://www.npmjs.com/package/jsonwebtoken
+    auth0Realm: 'Username-Password-Authentication',
+    auth0ClientId: AUTH0_CLIENT_ID,
+    auth0ClientSecret: AUTH0_CLIENT_SECRET,
+    auth0Domain: AUTH0_DOMAIN,
+    auth0TokenUrl: `https://${AUTH0_DOMAIN}/oauth/token`,
+    auth0AudienceUrl: `https://${AUTH0_DOMAIN}/api/v2/`,
   },
   middlewares: {
     rateLimit: {  // https://www.npmjs.com/package/rate-limiter-flexible
-      points: process.env.RATE_LIMIT_MAX || 10,
-      duration: process.env.RATE_LIMIT_WINDOW || 1,  // seconds
-      blockDuration: process.env.RATE_LIMIT_BLOCK_DURATION || 60 * 60 * 24  // seconds
+      points: RATE_LIMIT_MAX,
+      duration: RATE_LIMIT_WINDOW,  // seconds
+      blockDuration: RATE_LIMIT_BLOCK_DURATION  // seconds
     },
     bodyParser: {  // https://www.npmjs.com/package/body-parser
       json: {
@@ -28,7 +52,7 @@ module.exports = {
       }
     },
     corsConfigs: {  // https://www.npmjs.com/package/cors
-      enabled: process.env.CORS_ENABLED || true,
+      enabled: CORS_ENABLED,
       allowedOrigin: '*',
       allowedMethods: [
         'GET',
@@ -46,10 +70,10 @@ module.exports = {
   },
   db: {  // http://docs.sequelizejs.com/
     dialect: 'mysql',
-    host: process.env.DB_HOST || 'localhost',
-    username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD || '1',
-    database: process.env.DB_DATABASE,
+    host: DB_HOST,
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: DB_DATABASE,
     logging: false,
     timeout: 30 * 1000,  // ms
     timezone: '+00:00',

@@ -1,8 +1,6 @@
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
-
-const auth0Domain = process.env.AUTH0_DOMAIN;
-const auth0Audience = process.env.AUTH0_AUDIENCE;
+const {auth} = require('../../configs');
 
 const checkJwt = jwt({
   // Dynamically provide a signing key based on the kid in the header and the singing keys provided by the JWKS endpoint.
@@ -10,12 +8,11 @@ const checkJwt = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://${auth0Domain}/.well-known/jwks.json`
+    jwksUri: `https://${auth.auth0Domain}/.well-known/jwks.json`
   }),
 
   // Validate the audience and the issuer.
-  audience: auth0Audience,
-  issuer: `https://${auth0Domain}/`,
+  issuer: `https://${auth.auth0Domain}/`,
   algorithms: ['RS256']
 });
 

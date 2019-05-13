@@ -1,9 +1,10 @@
-const models = require('../db/models');
+const {auth} = require('../configs');
+const rp = require('request-promise');
+const {StatusCodeError} = require('request-promise-core/lib/errors');
 
 const login = app => {
   app.post('/login', async (req, res, next) => {
     const {email, password} = req.body;
-    let token = false;
 
     if (!email || !password) {
       console.error(__filename, `Invalid request body`);
@@ -12,59 +13,56 @@ const login = app => {
       });
     }
 
-    const userRecord = await models.user.findOne({
-      attributes: [
-        'id',
-        'passwordHash',
-        'passwordSalt'
-      ],
-      where: {
-        email
+    const options = {
+      method: 'POST',
+      uri: auth.auth0TokenUrl,
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      form: {
+        grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
+        username: email,
+        password: password,
+        audience: auth.auth0AudienceUrl,
+        scope: 'read:current_user',
+        client_id: auth.auth0ClientId,
+        client_secret: auth.auth0ClientSecret,
+        realm: auth.auth0Realm
       }
-    });
+    };
 
-    if (userRecord) {
-      if (!userRecord.isValidPassword(password)) {
-        console.error(__filename, `Invalid password`);
-        return next({
-          status: 401
-        });
+    let response;
+
+    try {
+      response = await rp(options);
+    } catch (ex) {
+      console.error(__filename, ex);
+
+      let response = {
+        status: 500
+      };
+
+      if (ex instanceof StatusCodeError) {
+        response.status = ex.statusCode;
       }
 
-      const id = userRecord.get('id');
+      return next(response);
+    }
 
-      token = models.user.generateTokens(id);
-
-      if (token) {
-        try {
-          await userRecord.update({
-            token
-          }, {
-            where: {
-              id
-            }
-          });
-        } catch (ex) {
-          console.error(__filename, `User record wasn't updated`);
-          return next({
-            status: 500
-          });
-        }
-      } else {
-        console.error(__filename, `Token hasn't been generated`);
-        return next({
-          status: 500
-        });
-      }
-    } else {
+    try {
+      response = JSON.parse(response);
+    } catch (ex) {
+      console.error(__filename, ex);
       return next({
-        status: 401
+        status: 500
       });
     }
 
-    return res
-      .set('Content-type', 'text/plain; charset=utf-8')
-      .send(token);
+    Object.assign(response, {
+      success: true
+    });
+
+    return res.json(response);
   });
 };
 
