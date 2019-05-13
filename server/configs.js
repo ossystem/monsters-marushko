@@ -17,7 +17,9 @@ const {
   DB_HOST = 'localhost',
   DB_USERNAME = 'root',
   DB_PASSWORD = '1',
-  DB_DATABASE
+  DB_DATABASE,
+  EMAIL_ACCOUNT,
+  EMAIL_PASSWORD
 } = process.env;
 
 module.exports = {
@@ -95,5 +97,9 @@ module.exports = {
       max: 50,  // maximum opened active connections to DB
       idle: 30000  // after this time an inactive connection will be closed, ms
     }
+  },
+  emailSender: {  // should be Gmail account credentials
+    accountEmail: EMAIL_ACCOUNT,
+    accountPassword: EMAIL_PASSWORD
   }
 };

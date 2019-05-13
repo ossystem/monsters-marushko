@@ -1,5 +1,6 @@
 const models = require('../db/models');
 const checkJwt = require('../lib/middlewares/checkJwt');
+// const sendEmail = require('../lib/sendEmail');
 
 const save = app => {
   app.post('/save', checkJwt, async (req, res, next) => {
@@ -57,7 +58,8 @@ const save = app => {
       });
     }
 
-    // TODO: Send E-mail
+    // TODO: Need to format answers and uncomment for sending E-mail
+    // sendEmail(email, answers);
 
     res.json({
       success: true
