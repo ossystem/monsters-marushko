@@ -6,15 +6,20 @@ const ButtonNext = props => {
   const btnClass = "wrapper" + (props.isDisabled ? " disabled" : "");
 
   return (
-    <div className={btnClass}>
+    <button
+      type="button"
+      className={btnClass}
+      onClick={props.onClick}
+    >
       {props.text}
-    </div>
+    </button>
   );
 };
 
 ButtonNext.propTypes = {
   text: PropTypes.string.isRequired,
-  isDisabled: PropTypes.bool
+  isDisabled: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 };
 
 export default ButtonNext;
