@@ -1,5 +1,15 @@
-.App {
-  font: 24px Arial, sans-serif;
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-logo {
   margin: 50px;
-  text-align: center;
+  width: 850px
+}
+
+.all-monsters {
+  width: 1150px
 }

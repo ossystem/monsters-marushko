@@ -1,0 +1,27 @@
+.wrapper {
+  align-items: center;
+  background-color: #0091ff;
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  font: bold 30px Arial, sans-serif;
+  justify-content: center;
+  height: 90px;
+  margin: 20px;
+  width: 340px;
+}
+
+.wrapper:hover {
+  background-color: #32a6ff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wrapper:active {
+  background-color: #007de9
+}
+
+.wrapper.disabled {
+  background-color: #e5e5e5;
+  pointer-events: none;
+}
