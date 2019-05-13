@@ -16,10 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: [
-          'node_modules',
-          'server'
-        ],
+        exclude: /node_modules|server|public/,
         loader: 'babel-loader',
         options: {
           presets: [
