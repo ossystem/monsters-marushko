@@ -4,24 +4,21 @@ import ButtonNext from '../ButtonNext/ButtonNext';
 import './BasePage.css';
 
 class BasePage extends Component {
-  constructor (props) {
-    super(props);
-  }
-
   render () {
     const {
       currentPage,
       totalPages,
       titleText,
       contentCmp,
-      buttonOptions
+      buttonOptions,
+      monsterImg
     } = this.props;
 
     return (
       <div className="page-container">
         <img className="logo" src="img/logo.png" alt=""/>
         <div className="form-wrapper">
-          <img className="monster-img" src="img/page_2_monster.png" alt=""/>
+          <img className="monster-img" src={monsterImg} alt=""/>
           <div className="paginator">{currentPage} from {totalPages}</div>
           <div className="page-title">{titleText}</div>
           {contentCmp}
@@ -39,6 +36,7 @@ BasePage.propTypes = {
   titleText: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
+  monsterImg: PropTypes.string,
   buttonOptions: PropTypes.shape({
     text: PropTypes.string.isRequired,
     isDisabled: PropTypes.bool,

@@ -85,6 +85,7 @@ class SignInPage extends Component {
         currentPage={1}
         totalPages={4}
         contentCmp={contentCmp}
+        monsterImg="img/page_2_monster.png"
         buttonOptions={{
           className: 'on-form',
           text: 'Next',
