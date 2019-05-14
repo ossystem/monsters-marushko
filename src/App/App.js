@@ -35,11 +35,13 @@ class App extends Component {
 
   render () {
     return (
-      <Router history={history}>
-        <Route path="/" exact component={StartPage}/>
-        <Route path="/questions" component={Pager}/>
-        <Route path="/results" component={null}/>
-      </Router>
+      <div className="main-container">
+        <Router history={history}>
+          <Route path="/" exact component={StartPage}/>
+          <Route path="/questions" component={Pager}/>
+          <Route path="/results" component={null}/>
+        </Router>
+      </div>
     );
   }
 }

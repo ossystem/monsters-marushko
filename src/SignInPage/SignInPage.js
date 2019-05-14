@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ButtonNext from '../ButtonNext/ButtonNext';
+import Input from '@material-ui/core/Input';
+import BasePage from '../BasePage/BasePage';
 import constants from '../constants';
 import './SignInPage.css';
 
 class SignInPage extends Component {
   constructor (props) {
     super(props);
+
+    // this.emailInput = React.createRef();
+    // this.passwordInput = React.createRef();
 
     this.state = {
       email: '',
@@ -54,28 +58,39 @@ class SignInPage extends Component {
   }
 
   render () {
-    return (
-      <div className="signin-page-container">
-        <img className="logo" src="img/logo.png" alt=""/>
-        <form action="/">
-          <input
-            type="text"
-            name="email"
-            placeholder="E-mail"
-            onChange={this._onFieldChangeValue}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={this._onFieldChangeValue}
-          />
-          <ButtonNext
-            text="Next"
-            onClick={this._sendAuthRequest}
-          />
-        </form>
+    const contentCmp = (
+      <div>
+        <Input
+          placeholder="Your Email"
+          type="text"
+          name="email"
+          className="text-field email"
+          onChange={this._onFieldChangeValue}
+          // ref={this.emailInput}
+        />
+        <Input
+          placeholder="Your password"
+          type="password"
+          name="password"
+          className="text-field password"
+          onChange={this._onFieldChangeValue}
+          // ref={this.passwordInput}
+        />
       </div>
+    );
+
+    return (
+      <BasePage
+        titleText="Start by Signup"
+        currentPage={1}
+        totalPages={4}
+        contentCmp={contentCmp}
+        buttonOptions={{
+          className: 'on-form',
+          text: 'Next',
+          onClick: this._sendAuthRequest
+        }}
+      />
     );
   }
 }

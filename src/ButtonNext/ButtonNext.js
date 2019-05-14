@@ -4,21 +4,30 @@ import { Link } from 'react-router-dom';
 import './ButtonNext.css';
 
 const ButtonNext = props => {
-  const btnClass = 'main-button' + (props.isDisabled ? ' disabled' : '');
+  const {
+    isDisabled,
+    className,
+    onClick,
+    text,
+    toRoute
+  } = props.options || props;
+
+  let btnClass = 'main-button' + (isDisabled ? ' disabled' : '');
+  btnClass = btnClass + (className ? ` ${className}` : '');
 
   let btn = (
     <button
       type="button"
       className={btnClass}
-      onClick={props.onClick || (() => {})}
+      onClick={onClick || (() => {})}
     >
-      {props.text}
+      {text}
     </button>
   );
 
-  if (props.toRoute) {
+  if (toRoute) {
     btn = (
-      <Link to={props.toRoute}>
+      <Link to={toRoute}>
         {btn}
       </Link>
     );
@@ -27,11 +36,17 @@ const ButtonNext = props => {
   return btn;
 };
 
-ButtonNext.propTypes = {
+const possibleOptions = {
   text: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
-  toRoute: PropTypes.string
+  toRoute: PropTypes.string,
+  className: PropTypes.string
 };
+
+ButtonNext.propTypes = PropTypes.oneOf([
+  possibleOptions,
+  { options: PropTypes.shape(possibleOptions).isRequired }
+]).isRequired;
 
 export default ButtonNext;

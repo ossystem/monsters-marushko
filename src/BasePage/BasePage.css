@@ -1,0 +1,65 @@
+.page-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-container .logo {
+  align-self: end;
+  margin-top: 75px;
+  width: 415px;
+}
+
+.page-container .form-wrapper {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.07);
+  display: flex;
+  justify-content: center;
+  height: 715px;
+  margin: 185px auto 75px;
+  position: relative;
+  width: 985px;
+  z-index: 10;
+}
+
+.page-container .form-wrapper .monster-img {
+  max-width: 370px;
+  max-height: 300px;
+  height: auto;
+  position: absolute;
+  width: auto;
+  top: -300px;
+}
+
+.page-container .form-wrapper .paginator {
+  align-items: center;
+  background-color: #8cbe82;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+  color: #ffffff;
+  display: flex;
+  font: bold 36px Arial, sans-serif;
+  justify-content: center;
+  height: 80px;
+  left: -50px;
+  position: absolute;
+  width: 265px;
+  top: 55px;
+  z-index: 20;
+}
+
+.page-container .form-wrapper .page-title {
+  font: 64px Arial, sans-serif;
+  left: 80px;
+  position: absolute;
+  top: 240px;
+}
+
+.page-container .form-wrapper .on-form {
+  bottom: 30px;
+  position: absolute;
+  right: 30px;
+}

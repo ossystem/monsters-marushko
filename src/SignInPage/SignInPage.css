@@ -1,13 +1,13 @@
-.signin-page-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
+.page-container .form-wrapper .text-field {
+  left: 80px;
+  position: absolute;
+  width: 330px;
 }
 
-.signin-page-container .logo {
-  align-self: end;
-  margin-top: 75px;
-  width: 415px;
+.page-container .form-wrapper .email {
+  top: 375px;
+}
+
+.page-container .form-wrapper .password {
+  top: 450px;
 }
