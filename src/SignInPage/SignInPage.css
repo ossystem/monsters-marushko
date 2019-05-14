@@ -1,5 +1,13 @@
-.App {
-  font: 24px Arial, sans-serif;
-  margin: 50px;
-  text-align: center;
+.signin-page-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.signin-page-container .logo {
+  align-self: end;
+  margin-top: 75px;
+  width: 415px;
 }

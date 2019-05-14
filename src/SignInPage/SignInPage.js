@@ -37,8 +37,6 @@ class SignInPage extends Component {
     }
 
     localStorage.setItem('id_token', responseData.id_token);
-
-    // TODO: Show working page after login
   }
 
   onFieldChangeValue (e) {
@@ -49,8 +47,8 @@ class SignInPage extends Component {
 
   render () {
     return (
-      <div className="App">
-        <h1>React application</h1>
+      <div className="signin-page-container">
+        <img className="logo" src="img/logo.png" alt=""/>
         <form action="/">
           <input
             type="text"
