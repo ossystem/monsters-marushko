@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import constants from '../constants';
 import './SignInPage.css';
 
@@ -30,13 +32,19 @@ class SignInPage extends Component {
       })
     });
 
-    const responseData = await response.json();
+    let responseData = await response.json();
+    const {success, id_token: idToken} = responseData || {};
 
-    if (!responseData || !responseData.success || !responseData.id_token) {
+    if (!success || !idToken) {
       return;
     }
 
-    localStorage.setItem('id_token', responseData.id_token);
+    localStorage.setItem('id_token', idToken);
+
+    this.props.dispatch({
+      type: 'SET_ID_TOKEN',
+      idToken: idToken
+    });
   }
 
   onFieldChangeValue (e) {
@@ -62,16 +70,14 @@ class SignInPage extends Component {
             placeholder="Password"
             onChange={this._onFieldChangeValue}
           />
-          <button
-            type="button"
+          <ButtonNext
+            text="Next"
             onClick={this._sendAuthRequest}
-          >
-            Next
-          </button>
+          />
         </form>
       </div>
     );
   }
 }
 
-export default SignInPage;
+export default connect()(SignInPage);

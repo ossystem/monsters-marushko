@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Pager from '../Pager/Pager';
+import { Router, Route } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 import StartPage from '../StartPage/StartPage';
-import SignInPage from '../SignInPage/SignInPage';
+import Pager from '../Pager/Pager';
 import constants from '../constants';
 import './App.css';
 
+const history = createBrowserHistory();
+
 class App extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      loading: true
-    };
-  }
-
   async componentWillMount () {
     const {idToken} = this.props;
 
     if (!idToken) {
-      this.setState({
-        loading: false
-      });
-
       return;
     }
 
@@ -40,36 +31,20 @@ class App extends Component {
         idToken: null
       });
     }
-
-    this.setState({
-      loading: false
-    });
   }
 
   render () {
-    let insideComponent;
-    const {idToken, appStarted} = this.props;
-
-    if (appStarted) {
-      if (idToken) {
-        insideComponent = <Pager/>;
-      } else {
-        insideComponent = <SignInPage/>;
-      }
-    } else {
-      insideComponent = <StartPage/>;
-    }
-
     return (
-      <div className="main-container">
-        {this.state.loading ? null : insideComponent}
-      </div>
+      <Router history={history}>
+        <Route path="/" exact component={StartPage}/>
+        <Route path="/questions" component={Pager}/>
+        <Route path="/results" component={null}/>
+      </Router>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  appStarted: state.appStarted,
   idToken: state.idToken
 });
 

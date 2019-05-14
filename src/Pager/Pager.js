@@ -1,14 +1,17 @@
-import React from 'react';
-import ButtonNext from '../ButtonNext/ButtonNext';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import SignInPage from '../SignInPage/SignInPage';
+import MainQuestions from '../MainQuestions/MainQuestions';
 import './Pager.css';
 
-const Pager = () => {
-  return (
-    <div className="container">
-      This is SPARTA!
-      <ButtonNext text="Next"/>
-    </div>
-  );
-};
+class Pager extends Component {
+  render () {
+    return this.props.idToken ? <MainQuestions/> : <SignInPage/>;
+  }
+}
 
-export default Pager;
+const mapStateToProps = state => ({
+  idToken: state.idToken
+});
+
+export default connect(mapStateToProps)(Pager);

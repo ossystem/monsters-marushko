@@ -4,18 +4,6 @@ import ButtonNext from '../ButtonNext/ButtonNext';
 import './StartPage.css';
 
 class StartPage extends Component {
-  constructor (props) {
-    super(props);
-
-    this._runApp = this.runApp.bind(this);
-  }
-
-  runApp () {
-    this.props.dispatch({
-      type: 'RUN_APP'
-    });
-  }
-
   render () {
     return (
       <div className="container">
@@ -23,7 +11,7 @@ class StartPage extends Component {
         <img className="all-monsters" src="img/page_1_monsters.png" alt=""/>
         <ButtonNext
           text="Start"
-          onClick={this._runApp}
+          toRoute="/questions"
         />
       </div>
     );
