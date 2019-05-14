@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ButtonNext from '../ButtonNext/ButtonNext';
 import './StartPage.css';
 
@@ -14,7 +14,7 @@ class StartPage extends Component {
     this.props.dispatch({
       type: 'RUN_APP'
     });
-  };
+  }
 
   render () {
     return (

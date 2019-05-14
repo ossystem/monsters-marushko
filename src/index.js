@@ -6,7 +6,7 @@ import App from './App/App';
 
 const initialState = {
   appStarted: false,
-  idToken: null
+  idToken: localStorage.getItem('id_token')
 };
 
 const reducer = (state = initialState, action) => {

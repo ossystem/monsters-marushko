@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './ButtonNext.css';
 
 const ButtonNext = props => {
-  const btnClass = "wrapper" + (props.isDisabled ? " disabled" : "");
+  const btnClass = 'main-button' + (props.isDisabled ? ' disabled' : '');
 
   return (
     <button
