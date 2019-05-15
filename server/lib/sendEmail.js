@@ -20,7 +20,7 @@ const sendEmail = async (email, answers = []) => {
   try {
     info = await transporter.sendMail({
       from: email,
-      to: 'v.marushko.ossystem@gmail.com',  // monsters@trialjectory.com
+      to: 'monsters@trialjectory.com',
       subject: `Monster test answers: ${email}`,
       html: `<div>${answers.join('; ')}</div>`
     });
