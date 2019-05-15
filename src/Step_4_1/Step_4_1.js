@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Slider from '@material-ui/lab/Slider';
 import FormLabel from '@material-ui/core/FormLabel';
 import BasePage from '../BasePage/BasePage';
+import constants from '../constants';
 import './Step_4_1.css';
 
 class Step_4_1 extends Component {
@@ -26,8 +27,8 @@ class Step_4_1 extends Component {
     });
   }
 
-  nextPage () {
-    const answers = this.props.answers;
+  async nextPage () {
+    const {answers, idToken} = this.props;
 
     answers[this.step] = [
       (this.state.value >= 50) ? 'Bad monster' : 'Good monster'
@@ -38,7 +39,21 @@ class Step_4_1 extends Component {
       value: answers
     });
 
-    // this.props.history.push('/results');
+    this.props.history.push('/results');
+
+    try {
+      fetch(`${constants.serverUrl}/save`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${idToken}`
+        },
+        cache: 'no-cache',
+        body: JSON.stringify(answers)
+      });
+    } catch (ex) {
+      console.error(ex);
+    }
   }
 
   render () {
@@ -72,7 +87,8 @@ class Step_4_1 extends Component {
 }
 
 const mapStateToProps = state => ({
-  answers: state.answers
+  answers: state.answers,
+  idToken: state.idToken
 });
 
 export default connect(mapStateToProps)(Step_4_1);

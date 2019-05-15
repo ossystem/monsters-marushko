@@ -1,0 +1,85 @@
+.page-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-container .logo {
+  align-self: end;
+  margin: 75px 0 60px;
+  width: 415px;
+}
+
+.page-container .page-title {
+  font: 64px Arial, sans-serif;
+  white-space: pre-wrap;
+}
+
+.page-container .results-content {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 75px;
+  width: 100%;
+}
+
+.page-container .results-content .form-wrapper {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.07);
+  display: flex;
+  justify-content: center;
+  height: 745px;
+  margin: 35px 0 0 100px;
+  position: relative;
+  width: 285px;
+  z-index: 10;
+}
+
+.page-container .results-content .monster-img-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.page-container .results-content .monster-img-wrapper .monster-img {
+  margin-bottom: 30px;
+  max-width: 530px;
+}
+
+.page-container .form-wrapper .paginator {
+  align-items: center;
+  background-color: #8cbe82;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+  color: #ffffff;
+  display: flex;
+  font: bold 36px Arial, sans-serif;
+  justify-content: center;
+  height: 80px;
+  left: -50px;
+  position: absolute;
+  width: 170px;
+  top: 55px;
+  z-index: 20;
+}
+
+.page-container .form-wrapper .answers-points {
+  position: absolute;
+  top: 160px;
+}
+
+.page-container .form-wrapper .answers-points .answer-point {
+  align-items: center;
+  border: 2px solid #d8e04e;
+  border-radius: 50%;
+  display: flex;
+  font: 18px Arial, sans-serif;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 120px;
+}

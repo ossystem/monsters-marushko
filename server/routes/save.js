@@ -1,12 +1,13 @@
 const models = require('../db/models');
 const checkJwt = require('../lib/middlewares/checkJwt');
-// const sendEmail = require('../lib/sendEmail');
+const sendEmail = require('../lib/sendEmail');
 
 const save = app => {
   app.post('/save', checkJwt, async (req, res, next) => {
     const email = req.user.name;
-    const {answers} = req.body;
+    const answers = req.body;
     const stepsNumbers = Object.keys(answers);
+    const ans = [];
 
     let userId;
     let userRecord = await models.user.findOne({
@@ -32,12 +33,16 @@ const save = app => {
 
     const answersRecords = stepsNumbers.reduce((acc, stepNumber) => {
       answers[stepNumber].forEach((value, index) => {
+        const v = JSON.stringify(value);
+
         acc.push({
           stepNumber: parseInt(stepNumber),
           questionNumber: index + 1,
-          value: JSON.stringify(value),
+          value: v,
           userId
         });
+
+        ans.push(v);
       });
 
       return acc;
@@ -58,8 +63,7 @@ const save = app => {
       });
     }
 
-    // TODO: Need to format answers and uncomment for sending E-mail
-    // sendEmail(email, answers);
+    sendEmail(email, ans);
 
     res.json({
       success: true

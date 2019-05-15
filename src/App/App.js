@@ -8,6 +8,7 @@ import Step_2_1 from '../Step_2_1/Step_2_1';
 import Step_2_2 from '../Step_2_2/Step_2_2';
 import Step_3_1 from '../Step_3_1/Step_3_1';
 import Step_4_1 from '../Step_4_1/Step_4_1';
+import ResultsPage from '../ResultsPage/ResultsPage';
 import constants from '../constants';
 import './App.css';
 
@@ -47,7 +48,7 @@ class App extends Component {
           <Route path="/questions/2/2" component={Step_2_2}/>
           <Route path="/questions/3/1" component={Step_3_1}/>
           <Route path="/questions/4/1" component={Step_4_1}/>
-          <Route path="/results" component={null}/>
+          <Route path="/results" component={ResultsPage}/>
         </Router>
       </div>
     );
