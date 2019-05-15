@@ -1,11 +1,16 @@
 const nodemailer = require('nodemailer');
-const {emailSender} = require('../configs');
+const {mailer} = require('../configs');
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: mailer.host,
   auth: {
-    user: emailSender.accountEmail,
-    pass: emailSender.accountPassword
+    user: mailer.user,
+    pass: mailer.pass
+  },
+  port: mailer.port,
+  secure: true,
+  tls: {
+    rejectUnauthorized: false
   }
 });
 
@@ -15,9 +20,9 @@ const sendEmail = async (email, answers) => {
   try {
     info = await transporter.sendMail({
       from: email,
-      to: 'monsters@trialjectory.com',
-      subject: 'Monster test answers',
-      html: `<div>${answers.join(',')}</div>`
+      to: 'v.marushko.ossystem@gmail.com',  // monsters@trialjectory.com
+      subject: `Monster test answers: ${email}`,
+      html: `<div>${answers.join('; ')}</div>`
     });
   } catch (ex) {
     console.error(__filename, ex);

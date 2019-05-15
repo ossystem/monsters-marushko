@@ -6,6 +6,7 @@ const {
 const {
   NODE_ENV = PROD,
   PROTOCOL = HTTP,
+  HOST = '0.0.0.0',
   PORT = 3000,
   AUTH0_CLIENT_ID,
   AUTH0_CLIENT_SECRET,
@@ -18,15 +19,17 @@ const {
   DB_USERNAME = 'root',
   DB_PASSWORD = '1',
   DB_DATABASE,
-  EMAIL_ACCOUNT,
-  EMAIL_PASSWORD
+  MAILER_HOST,
+  MAILER_USER,
+  MAILER_PASS,
+  MAILER_PORT
 } = process.env;
 
 module.exports = {
   isDevelopment: NODE_ENV === DEV,
   server: {
     protocol: PROTOCOL,
-    host: '0.0.0.0',
+    host: HOST,
     port: PORT
   },
   auth: {
@@ -98,8 +101,10 @@ module.exports = {
       idle: 30000  // after this time an inactive connection will be closed, ms
     }
   },
-  emailSender: {  // should be Gmail account credentials
-    accountEmail: EMAIL_ACCOUNT,
-    accountPassword: EMAIL_PASSWORD
+  mailer: {
+    host: MAILER_HOST,
+    user: MAILER_USER,
+    pass: MAILER_PASS,
+    port: MAILER_PORT
   }
 };

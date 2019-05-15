@@ -36,8 +36,6 @@ const login = app => {
     try {
       response = await rp(options);
     } catch (ex) {
-      console.error(__filename, ex);
-
       let response = {
         status: 500
       };
