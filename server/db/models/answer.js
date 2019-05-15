@@ -20,13 +20,6 @@ module.exports = (sequelize, dataTypes) => {
     value: {
       type: dataTypes.STRING,
       allowNull: false
-    },
-    createdAt: {
-      type: dataTypes.BIGINT,
-      allowNull: false,
-      defaultValue: sequelize.literal(`
-        ROUND(UNIX_TIMESTAMP(NOW(3)) * 1000)
-      `)
     }
   }, {
     tableName: 'answers',
