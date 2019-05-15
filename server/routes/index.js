@@ -13,6 +13,8 @@ const applyTo = app => {
     }
   });
 
+  app.use('*', (req, res) => res.redirect('/'));
+
   return app;
 };
 

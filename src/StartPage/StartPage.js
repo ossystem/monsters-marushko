@@ -11,11 +11,15 @@ class StartPage extends Component {
         <img className="all-monsters" src="img/page_1_monsters.png" alt=""/>
         <ButtonNext
           text="Start"
-          toRoute="/questions"
+          toRoute={this.props.idToken ? "/questions/2/1" : "/questions/1/1"}
         />
       </div>
     );
   }
 }
 
-export default connect()(StartPage);
+const mapStateToProps = state => ({
+  idToken: state.idToken
+});
+
+export default connect(mapStateToProps)(StartPage);

@@ -14,7 +14,8 @@ class SignInPage extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      formIsValid: false
     };
 
     this._sendAuthRequest = this.sendAuthRequest.bind(this);
@@ -49,11 +50,17 @@ class SignInPage extends Component {
       type: 'SET_ID_TOKEN',
       idToken: idToken
     });
+
+    this.props.history.push('/questions/2/1');
   }
 
   onFieldChangeValue (e) {
     this.setState({
       [e.target.name]: e.target.value
+    }, () => {
+      this.setState({
+        formIsValid: !!(this.state.email && this.state.password)
+      });
     });
   }
 
@@ -85,11 +92,12 @@ class SignInPage extends Component {
         currentPage={1}
         totalPages={4}
         contentCmp={contentCmp}
-        monsterImg="img/page_2_monster.png"
+        monsterImg="/img/page_2_monster.png"
         buttonOptions={{
           className: 'on-form',
           text: 'Next',
-          onClick: this._sendAuthRequest
+          onClick: this._sendAuthRequest,
+          isDisabled: !this.state.formIsValid
         }}
       />
     );

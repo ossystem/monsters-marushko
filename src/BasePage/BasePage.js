@@ -16,9 +16,11 @@ class BasePage extends Component {
 
     return (
       <div className="page-container">
-        <img className="logo" src="img/logo.png" alt=""/>
+        <img className="logo" src="/img/logo.png" alt=""/>
         <div className="form-wrapper">
-          <img className="monster-img" src={monsterImg} alt=""/>
+          <div className="monster-img-wrapper">
+            <img className="monster-img" src={monsterImg} alt=""/>
+          </div>
           <div className="paginator">{currentPage} from {totalPages}</div>
           <div className="page-title">{titleText}</div>
           {contentCmp}

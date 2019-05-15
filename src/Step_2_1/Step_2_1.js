@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-// import constants from '../constants';
+import constants from '../constants';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import BasePage from '../BasePage/BasePage';
-import './MainQuestions.css';
+import './Step_2_1.css';
 
-class MainQuestions extends Component {
+class Step_2_1 extends Component {
   constructor (props) {
     super(props);
 
+    const possibleAnswers = constants.possibleAnswers[2][1];
+
     this.state = {
-      selectedValue: `I'm not scared at all`
+      possibleAnswers,
+      selectedValue: possibleAnswers[0]
     };
 
     this._handleChange = this.handleChange.bind(this);
+    this._nextPage = this.nextPage.bind(this);
   }
 
   handleChange (e) {
@@ -23,34 +27,26 @@ class MainQuestions extends Component {
     });
   }
 
+  nextPage () {
+    debugger;
+  }
+
   render () {
     const contentCmp = (
       <RadioGroup
-        className="radio-group-2-4-1"
-        name="step_2_4_1"
+        className="radio-group-2-1"
         value={this.state.selectedValue}
         onChange={this._handleChange}
       >
-        <FormControlLabel
-          value="I'm not scared at all"
-          control={<Radio />}
-          label="I'm not scared at all"
-        />
-        <FormControlLabel
-          value="Sometimes"
-          control={<Radio />}
-          label="Sometimes"
-        />
-        <FormControlLabel
-          value="Never"
-          control={<Radio />}
-          label="Never"
-        />
-        <FormControlLabel
-          value="What a stupid question!"
-          control={<Radio />}
-          label="What a stupid question!"
-        />
+        {this.state.possibleAnswers.map((el, index) => {
+          return (
+            <FormControlLabel key={index}
+              value={el}
+              control={<Radio />}
+              label={el}
+            />
+          );
+        })}
       </RadioGroup>
     );
 
@@ -60,15 +56,15 @@ class MainQuestions extends Component {
         currentPage={2}
         totalPages={4}
         contentCmp={contentCmp}
-        monsterImg="img/page_3_monster.png"
+        monsterImg="/img/page_3_monster.png"
         buttonOptions={{
           className: 'on-form',
           text: 'Next',
-          // onClick: this._sendAuthRequest
+          onClick: this._nextPage
         }}
       />
     );
   }
 }
 
-export default MainQuestions;
+export default Step_2_1;
