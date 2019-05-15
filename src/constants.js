@@ -15,9 +15,11 @@ export default {
         'Velvet'
       ]
     },
-    3: [
-      'Day monster',
-      'Night monster'
-    ]
+    3: {
+      1: [
+        'Day monster',
+        'Night monster'
+      ]
+    }
   }
 };

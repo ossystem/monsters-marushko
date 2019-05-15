@@ -64,6 +64,7 @@
   left: 80px;
   position: absolute;
   top: 240px;
+  white-space: pre-wrap;
 }
 
 .page-container .form-wrapper .on-form {

@@ -1,0 +1,11 @@
+.page-container .form-wrapper .toggler-3-1 {
+  align-items: center;
+  display: flex;
+  left: 80px;
+  position: absolute;
+  top: 415px;
+}
+
+.page-container .form-wrapper .toggler {
+  margin: 0 50px
+}

@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import App from './App/App';
 
 const initialState = {
-  idToken: localStorage.getItem('id_token')
+  idToken: localStorage.getItem('id_token'),
+  answers: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,9 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_ID_TOKEN':
       newState.idToken = action.idToken;
+      break;
+    case 'CHANGE_ANSWERS':
+      newState.answers = action.value;
       break;
   }
 

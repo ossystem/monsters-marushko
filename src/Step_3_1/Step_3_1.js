@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import FormLabel from '@material-ui/core/FormLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
-import './Step_2_1.css';
+import './Step_3_1.css';
 
-class Step_2_1 extends Component {
+class Step_3_1 extends Component {
   constructor (props) {
     super(props);
 
-    this.step = 2;
+    this.step = 3;
     this.questionNumber = 1;
 
     const possibleAnswers = constants.possibleAnswers[this.step][this.questionNumber];
 
     this.state = {
       possibleAnswers,
-      selectedValue: possibleAnswers[0]
+      selectedValue: true
     };
 
     this._handleChange = this.handleChange.bind(this);
     this._nextPage = this.nextPage.bind(this);
   }
 
-  handleChange (e) {
+  handleChange () {
     this.setState({
-      selectedValue: e.target.value
+      selectedValue: !this.state.selectedValue
     });
   }
 
@@ -35,7 +34,7 @@ class Step_2_1 extends Component {
     const answers = this.props.answers;
 
     answers[this.step] = [
-      this.state.selectedValue
+      this.state.possibleAnswers[+this.state.selectedValue]
     ];
 
     this.props.dispatch({
@@ -43,36 +42,29 @@ class Step_2_1 extends Component {
       value: answers
     });
 
-    this.props.history.push('/questions/2/2');
+    this.props.history.push('/questions/4/1');
   }
 
   render () {
     const contentCmp = (
-      <RadioGroup
-        className="radio-group-2-1"
-        value={this.state.selectedValue}
-        onChange={this._handleChange}
-      >
-        {this.state.possibleAnswers.map((el, index) => {
-          return (
-            <FormControlLabel
-              key={index}
-              value={el}
-              control={<Radio />}
-              label={el}
-            />
-          );
-        })}
-      </RadioGroup>
+      <div className="toggler-3-1">
+        <FormLabel>Day monster</FormLabel>
+        <Switch
+          className="toggler"
+          checked={this.state.selectedValue}
+          onChange={this._handleChange}
+        />
+        <FormLabel>Night Monster</FormLabel>
+      </div>
     );
 
     return (
       <BasePage
-        titleText="Are you afraid of the dark?"
+        titleText="Are you a monster day or&#10;a night monster?"
         currentPage={this.step}
         totalPages={4}
         contentCmp={contentCmp}
-        monsterImg="/img/page_3_monster.png"
+        monsterImg="/img/page_7_monster.png"
         buttonOptions={{
           className: 'on-form',
           text: 'Next',
@@ -87,4 +79,4 @@ const mapStateToProps = state => ({
   answers: state.answers
 });
 
-export default connect(mapStateToProps)(Step_2_1);
+export default connect(mapStateToProps)(Step_3_1);

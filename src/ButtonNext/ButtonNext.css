@@ -24,3 +24,15 @@
   background-color: #e5e5e5;
   pointer-events: none;
 }
+
+.main-button.green-btn {
+  background-color: #8cbe82;
+}
+
+.main-button.green-btn:hover {
+  background-color: #abe19f;
+}
+
+.main-button.green-btn:active {
+  background-color: #73a269
+}

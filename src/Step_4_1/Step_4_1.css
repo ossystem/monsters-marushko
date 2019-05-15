@@ -1,0 +1,16 @@
+.page-container .form-wrapper .slider-4-1 {
+  align-items: center;
+  display: flex;
+  left: 80px;
+  position: absolute;
+  top: 415px;
+}
+
+.page-container .form-wrapper .slider-4-1 .form-label {
+  white-space: nowrap;
+}
+
+.page-container .form-wrapper .slider-4-1 .slider {
+  margin: 0 20px;
+  width: 145px;
+}
