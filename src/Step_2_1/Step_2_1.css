@@ -3,3 +3,7 @@
   position: absolute;
   top: 340px;
 }
+
+.page-container .form-wrapper .radio-group-2-1 .radio-label span {
+  font: 18px Arial, sans-serif;
+}

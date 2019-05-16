@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.page-container .logo {
+.page-container > .logo {
   align-self: end;
   margin: 75px 0 60px;
   width: 415px;
@@ -49,7 +49,7 @@
   max-width: 530px;
 }
 
-.page-container .form-wrapper .paginator {
+.page-container .results-content .form-wrapper .paginator {
   align-items: center;
   background-color: #8cbe82;
   border-radius: 5px;
@@ -75,6 +75,7 @@
   align-items: center;
   border: 2px solid #d8e04e;
   border-radius: 50%;
+  color: #6e6e6e;
   display: flex;
   font: 18px Arial, sans-serif;
   justify-content: center;

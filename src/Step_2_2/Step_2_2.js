@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
 import './Step_2_2.css';
+
+const styles = {
+  root: {
+    '&$checked': {
+      color: '#8cbe82',
+    },
+  },
+  checked: {}
+};
 
 class Step_2_2 extends Component {
   constructor (props) {
@@ -59,6 +69,8 @@ class Step_2_2 extends Component {
   }
 
   render () {
+    const { classes } = this.props;
+
     const contentCmp = (
       <FormGroup className="checkbox-group-2-2">
         {this.state.possibleAnswers.map((el, index) => {
@@ -66,9 +78,14 @@ class Step_2_2 extends Component {
             <FormControlLabel
               key={index}
               label={el}
+              className="checkbox-label"
               control={
                 <Checkbox
                   onChange={this._handleChange(el)}
+                  classes={{
+                    root: classes.root,
+                    checked: classes.checked,
+                  }}
                 />
               }
             />
@@ -99,4 +116,4 @@ const mapStateToProps = state => ({
   answers: state.answers
 });
 
-export default connect(mapStateToProps)(Step_2_2);
+export default connect(mapStateToProps)(withStyles(styles)(Step_2_2));

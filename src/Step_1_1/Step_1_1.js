@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import BasePage from '../BasePage/BasePage';
 import constants from '../constants';
-import './SignInPage.css';
+import './Step_1_1.css';
 
-class SignInPage extends Component {
+const styles = {
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: '#8cbe82',
+    }
+  }
+};
+
+class Step_1_1 extends Component {
   constructor (props) {
     super(props);
-
-    // this.emailInput = React.createRef();
-    // this.passwordInput = React.createRef();
 
     this.state = {
       email: '',
@@ -65,6 +71,8 @@ class SignInPage extends Component {
   }
 
   render () {
+    const  { classes } = this.props;
+
     const contentCmp = (
       <div>
         <Input
@@ -73,7 +81,10 @@ class SignInPage extends Component {
           name="email"
           className="text-field email"
           onChange={this._onFieldChangeValue}
-          // ref={this.emailInput}
+          classes={{
+            root: classes.root,
+            underline: classes.cssUnderline,
+          }}
         />
         <Input
           placeholder="Your password"
@@ -81,7 +92,9 @@ class SignInPage extends Component {
           name="password"
           className="text-field password"
           onChange={this._onFieldChangeValue}
-          // ref={this.passwordInput}
+          classes={{
+            underline: classes.cssUnderline,
+          }}
         />
       </div>
     );
@@ -93,6 +106,7 @@ class SignInPage extends Component {
         totalPages={4}
         contentCmp={contentCmp}
         monsterImg="/img/page_2_monster.png"
+        needToHideLogout={true}
         buttonOptions={{
           className: 'on-form',
           text: 'Next',
@@ -104,4 +118,4 @@ class SignInPage extends Component {
   }
 }
 
-export default connect()(SignInPage);
+export default connect()(withStyles(styles)(Step_1_1));

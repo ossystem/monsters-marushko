@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
 import './Step_2_1.css';
+
+const styles = {
+  root: {
+    '&$checked': {
+      color: '#7ec69a',
+    },
+  },
+  checked: {}
+};
 
 class Step_2_1 extends Component {
   constructor (props) {
@@ -47,6 +57,8 @@ class Step_2_1 extends Component {
   }
 
   render () {
+    const { classes } = this.props;
+
     const contentCmp = (
       <RadioGroup
         className="radio-group-2-1"
@@ -58,7 +70,14 @@ class Step_2_1 extends Component {
             <FormControlLabel
               key={index}
               value={el}
-              control={<Radio />}
+              className="radio-label"
+              control={
+                <Radio
+                  classes={{
+                    root: classes.root,
+                    checked: classes.checked,
+                  }}
+                />}
               label={el}
             />
           );
@@ -87,4 +106,4 @@ const mapStateToProps = state => ({
   answers: state.answers
 });
 
-export default connect(mapStateToProps)(Step_2_1);
+export default connect(mapStateToProps)(withStyles(styles)(Step_2_1));

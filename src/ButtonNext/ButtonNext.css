@@ -36,3 +36,28 @@
 .main-button.green-btn:active {
   background-color: #73a269
 }
+
+.main-button.white-btn {
+  background-color: #ffffff;
+  color: rgba(0,0,0,0.87);
+}
+
+.main-button.white-btn:hover {
+  background-color: #e9e9e9;
+}
+
+.main-button.white-btn:active {
+  background-color: #d2d2d2
+}
+
+.main-button .internal-wrapper {
+  align-items: center;
+  display: flex;
+  margin: 0 0 0 auto;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.main-button .internal-wrapper svg {
+  font-size: 38px;
+}

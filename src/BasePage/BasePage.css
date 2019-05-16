@@ -6,10 +6,16 @@
   width: 100%;
 }
 
-.page-container .logo {
-  align-self: end;
+.page-container .top-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 75px;
-  width: 415px;
+  width: 100%;
+}
+
+.page-container .top-wrapper .logo {
+  height: 125px;
 }
 
 .page-container .form-wrapper {

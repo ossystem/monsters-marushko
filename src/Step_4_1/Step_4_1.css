@@ -7,10 +7,26 @@
 }
 
 .page-container .form-wrapper .slider-4-1 .form-label {
+  color: #252525;
+  font: 18px Arial, sans-serif;
   white-space: nowrap;
 }
 
 .page-container .form-wrapper .slider-4-1 .slider {
   margin: 0 20px;
   width: 145px;
+}
+
+.page-container .form-wrapper .slider-4-1 .slider div > div,
+.page-container .form-wrapper .slider-4-1 .slider div > div > button {
+  background-color: #7ec69a;
+}
+
+.page-container .form-wrapper .slider-4-1 .slider div > div > button:hover {
+  box-shadow: 0 0 0 9px rgba(126, 198, 154, 0.16);
+}
+
+.page-container .form-wrapper .slider-4-1 .slider div:nth-child(3) {
+  background-color: #bebebe;
+  opacity: 1;
 }

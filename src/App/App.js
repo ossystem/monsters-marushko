@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import StartPage from '../StartPage/StartPage';
-import SignInPage from '../SignInPage/SignInPage';
+import Step_1_1 from '../Step_1_1/Step_1_1';
 import Step_2_1 from '../Step_2_1/Step_2_1';
 import Step_2_2 from '../Step_2_2/Step_2_2';
 import Step_3_1 from '../Step_3_1/Step_3_1';
@@ -43,7 +43,7 @@ class App extends Component {
       <div className="main-container">
         <Router history={history}>
           <Route path="/" exact component={StartPage}/>
-          <Route path="/questions/1/1" component={SignInPage}/>
+          <Route path="/questions/1/1" component={Step_1_1}/>
           <Route path="/questions/2/1" component={Step_2_1}/>
           <Route path="/questions/2/2" component={Step_2_2}/>
           <Route path="/questions/3/1" component={Step_3_1}/>

@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import FormLabel from '@material-ui/core/FormLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
 import './Step_3_1.css';
+
+const styles = {
+  colorSwitchBase: {
+    color: '#464646',
+    '&$colorChecked': {
+      color: '#8cbe82',
+      '& + $colorBar': {
+        backgroundColor: '#bee2cc',
+      },
+    },
+  },
+  colorBar: {},
+  colorChecked: {}
+};
 
 class Step_3_1 extends Component {
   constructor (props) {
@@ -46,15 +61,26 @@ class Step_3_1 extends Component {
   }
 
   render () {
+    const { classes } = this.props;
+
     const contentCmp = (
       <div className="toggler-3-1">
-        <FormLabel>Day monster</FormLabel>
+        <FormLabel className="toggler-label">
+          Day monster
+        </FormLabel>
         <Switch
           className="toggler"
           checked={this.state.selectedValue}
           onChange={this._handleChange}
+          classes={{
+            switchBase: classes.colorSwitchBase,
+            checked: classes.colorChecked,
+            bar: classes.colorBar
+          }}
         />
-        <FormLabel>Night Monster</FormLabel>
+        <FormLabel className="toggler-label">
+          Night Monster
+        </FormLabel>
       </div>
     );
 
@@ -79,4 +105,4 @@ const mapStateToProps = state => ({
   answers: state.answers
 });
 
-export default connect(mapStateToProps)(Step_3_1);
+export default connect(mapStateToProps)(withStyles(styles)(Step_3_1));

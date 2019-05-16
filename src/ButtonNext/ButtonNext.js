@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { ArrowForward } from '@material-ui/icons';
 import './ButtonNext.css';
 
 const ButtonNext = props => {
@@ -21,7 +22,10 @@ const ButtonNext = props => {
       className={btnClass}
       onClick={onClick || (() => {})}
     >
-      {text}
+      <div className="internal-wrapper">
+        {text}
+        <ArrowForward/>
+      </div>
     </button>
   );
 

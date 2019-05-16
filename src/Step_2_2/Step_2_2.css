@@ -3,3 +3,7 @@
   position: absolute;
   top: 340px;
 }
+
+.page-container .form-wrapper .checkbox-group-2-2 .checkbox-label span {
+  font: 18px Arial, sans-serif;
+}

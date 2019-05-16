@@ -9,3 +9,8 @@
 .page-container .form-wrapper .toggler {
   margin: 0 50px
 }
+
+.page-container .form-wrapper .toggler-3-1 .toggler-label {
+  color: #252525;
+  font: 18px Arial, sans-serif;
+}
