@@ -58,6 +58,7 @@ class Step_2_2 extends Component {
   nextPage () {
     const answers = this.props.answers;
 
+    answers[this.step].length = 1;  // it needs if we went by browser history forward and back
     answers[this.step].push(this.state.selectedValues.join(', '));
 
     this.props.dispatch({
