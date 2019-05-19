@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "RUNNING_MODE=development webpack --watch",
+    "watch": "RUNNING_MODE=development webpack --ignore ./src --ignore ./public --watch",
     "build": "webpack",
-    "debug": "nodemon ./server/index.js --ignore ./src --ignore ./public",
+    "debug": "nodemon --ignore ./src --ignore ./public ./server/index.js",
     "start": "node ./server/index.js",
     "create": "./node_modules/.bin/sequelize db:create",
-    "sync": "node ./server/lib/syncDb",
-    "fill": "./node_modules/.bin/sequelize db:seed:all"
+    "sync": "node ./server/lib/syncDb"
   },
   "keywords": [],
   "author": "Vitalii Marushko <vi.marushko@gmail.com>",

@@ -3,13 +3,52 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 55px;
 }
 
 .top-logo {
-  margin: 50px;
+  display: block;
+  margin: 50px 50px 35px 50px;
   width: 850px
+}
+
+.top-logo-label {
+  color: #7ca062;
+  font: 34px Arial, sans-serif;
+  margin-bottom: 50px;
 }
 
 .all-monsters {
   width: 1150px
+}
+
+.all-monsters-mob {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    margin-bottom: 40px;
+  }
+
+  .top-logo {
+    margin: 40px 50px 15px;
+    width: 220px;
+  }
+
+  .top-logo-label {
+    color: #abd48b;
+    font: 22px Arial, sans-serif;
+    margin-bottom: 25px;
+  }
+
+  .all-monsters {
+    display: none;
+  }
+
+  .all-monsters-mob {
+    display: block;
+    margin-bottom: 80px;
+    width: 250px;
+  }
 }

@@ -61,3 +61,11 @@
 .main-button .internal-wrapper svg {
   font-size: 38px;
 }
+
+@media screen and (max-width: 320px) {
+  .main-button {
+    height: 70px;
+    margin: 0;
+    width: 280px;
+  }
+}
