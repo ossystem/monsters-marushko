@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Slider from '@material-ui/lab/Slider';
 import FormLabel from '@material-ui/core/FormLabel';
 import BasePage from '../BasePage/BasePage';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import constants from '../constants';
 import './Step_4_1.css';
 
@@ -70,18 +71,25 @@ class Step_4_1 extends Component {
     );
 
     return (
-      <BasePage
-        titleText="You'd rather be a bad or&#10;a good monster"
-        currentPage={this.step}
-        totalPages={4}
-        contentCmp={contentCmp}
-        monsterImg="/img/page_8_monster.png"
-        buttonOptions={{
-          className: 'on-form green-btn',
-          text: 'Submit',
-          onClick: this._nextPage
-        }}
-      />
+      <div>
+        <BasePage
+          titleText="You'd rather be a bad or&#10;a good monster"
+          currentPage={this.step}
+          totalPages={4}
+          contentCmp={contentCmp}
+          monsterImg="/img/page_8_monster.png"
+          buttonOptions={{
+            className: 'on-form green-btn',
+            text: 'Submit',
+            onClick: this._nextPage
+          }}
+        />
+        <ButtonNext
+          className='on-form green-btn mob'
+          text='Submit'
+          onClick={this._nextPage}
+        />
+      </div>
     );
   }
 }

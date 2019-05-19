@@ -7,3 +7,11 @@
 .page-container .form-wrapper .checkbox-group-2-2 .checkbox-label span {
   font: 18px Arial, sans-serif;
 }
+
+@media screen and (max-width: 320px) {
+  .page-container .form-wrapper .checkbox-group-2-2  {
+    left: 10px;
+    width: 300px;
+    top: 280px;
+  }
+}

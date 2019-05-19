@@ -14,3 +14,15 @@
   color: #252525;
   font: 18px Arial, sans-serif;
 }
+
+@media screen and (max-width: 320px) {
+  .page-container .form-wrapper .toggler-3-1  {
+    left: 10px;
+    width: 100%;
+    top: 330px
+  }
+
+  .page-container .form-wrapper .toggler {
+    margin: 0;
+  }
+}

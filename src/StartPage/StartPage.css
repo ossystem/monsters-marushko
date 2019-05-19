@@ -6,23 +6,23 @@
   margin-bottom: 55px;
 }
 
-.top-logo {
+.container .top-logo {
   display: block;
   margin: 50px 50px 35px 50px;
   width: 850px
 }
 
-.top-logo-label {
+.container .top-logo-label {
   color: #7ca062;
   font: 34px Arial, sans-serif;
   margin-bottom: 50px;
 }
 
-.all-monsters {
+.container .all-monsters {
   width: 1150px
 }
 
-.all-monsters-mob {
+.container .all-monsters-mob {
   display: none;
 }
 
@@ -31,22 +31,22 @@
     margin-bottom: 40px;
   }
 
-  .top-logo {
+  .container .top-logo {
     margin: 40px 50px 15px;
     width: 220px;
   }
 
-  .top-logo-label {
+  .container .top-logo-label {
     color: #abd48b;
     font: 22px Arial, sans-serif;
     margin-bottom: 25px;
   }
 
-  .all-monsters {
+  .container .all-monsters {
     display: none;
   }
 
-  .all-monsters-mob {
+  .container .all-monsters-mob {
     display: block;
     margin-bottom: 80px;
     width: 250px;

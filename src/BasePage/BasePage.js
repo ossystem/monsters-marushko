@@ -39,7 +39,12 @@ class BasePage extends Component {
     return (
       <div className="page-container">
         <div className="top-wrapper">
-          <img className="logo" src="/img/logo.png" alt=""/>
+          <div className="top-logo-wrapper">
+            <img className="top-logo" src="/img/logo2.png" alt=""/>
+            <div className="top-logo-label">
+              Found your monsters
+            </div>
+          </div>
           <ButtonNext
             className={logOutBtnClasses}
             text='Log out'

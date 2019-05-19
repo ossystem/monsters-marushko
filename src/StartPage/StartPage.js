@@ -11,8 +11,8 @@ class StartPage extends Component {
         <div className="top-logo-label">
           Found your monsters
         </div>
-        <img className="all-monsters" src="img/page_1_monsters.png" alt=""/>
-        <img className="all-monsters-mob" src="img/page_mob_1_monsters.png" alt=""/>
+        <img className="all-monsters" src="/img/page_1_monsters.png" alt=""/>
+        <img className="all-monsters-mob" src="/img/page_mob_1_monsters.png" alt=""/>
         <ButtonNext
           text="Start"
           toRoute={this.props.idToken ? "/questions/2/1" : "/questions/1/1"}

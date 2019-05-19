@@ -11,3 +11,18 @@
 .page-container .form-wrapper .password {
   top: 450px;
 }
+
+@media screen and (max-width: 320px) {
+  .page-container .form-wrapper .text-field {
+    left: 10px;
+    width: 300px;
+  }
+
+  .page-container .form-wrapper .email {
+    top: 275px;
+  }
+
+  .page-container .form-wrapper .password {
+    top: 350px;
+  }
+}

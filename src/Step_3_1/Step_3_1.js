@@ -5,6 +5,7 @@ import Switch from '@material-ui/core/Switch';
 import FormLabel from '@material-ui/core/FormLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import './Step_3_1.css';
 
 const styles = {
@@ -85,18 +86,25 @@ class Step_3_1 extends Component {
     );
 
     return (
-      <BasePage
-        titleText="Are you a monster day or&#10;a night monster?"
-        currentPage={this.step}
-        totalPages={4}
-        contentCmp={contentCmp}
-        monsterImg="/img/page_7_monster.png"
-        buttonOptions={{
-          className: 'on-form',
-          text: 'Next',
-          onClick: this._nextPage
-        }}
-      />
+      <div>
+        <BasePage
+          titleText="Are you a monster day or&#10;a night monster?"
+          currentPage={this.step}
+          totalPages={4}
+          contentCmp={contentCmp}
+          monsterImg="/img/page_7_monster.png"
+          buttonOptions={{
+            className: 'on-form',
+            text: 'Next',
+            onClick: this._nextPage
+          }}
+        />
+        <ButtonNext
+          className='on-form mob'
+          text='Next'
+          onClick={this._nextPage}
+        />
+      </div>
     );
   }
 }

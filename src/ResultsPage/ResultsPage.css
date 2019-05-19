@@ -5,11 +5,25 @@
   justify-content: center;
   width: 100%;
 }
+.page-container .top-logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 75px;
+  width: 100%;
+}
 
-.page-container > .logo {
+.page-container .top-logo-wrapper .top-logo {
   align-self: end;
   margin: 75px 0 60px;
   width: 415px;
+}
+
+.page-container .top-logo-wrapper .top-logo-label {
+  color: #abd48b;
+  font: 24px Arial, sans-serif;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .page-container .page-title {

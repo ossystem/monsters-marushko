@@ -30,3 +30,19 @@
   background-color: #bebebe;
   opacity: 1;
 }
+
+@media screen and (max-width: 320px) {
+  .page-container .form-wrapper .slider-4-1 {
+    left: 10px;
+    top: 330px;
+    width: 280px;
+  }
+
+  .page-container .form-wrapper .toggler {
+    margin: 0;
+  }
+
+  .page-container .form-wrapper .slider-4-1 .form-label {
+    white-space: initial;
+  }
+}

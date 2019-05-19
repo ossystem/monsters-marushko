@@ -62,10 +62,20 @@
   font-size: 38px;
 }
 
+.main-button.mob {
+  display: none;
+}
+
 @media screen and (max-width: 320px) {
   .main-button {
+    display: inline-block;
     height: 70px;
     margin: 0;
     width: 280px;
+  }
+
+  .main-button.mob {
+    display: block;
+    margin: auto auto 40px;
   }
 }

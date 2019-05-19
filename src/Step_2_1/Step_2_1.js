@@ -6,6 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import './Step_2_1.css';
 
 const styles = {
@@ -86,18 +87,25 @@ class Step_2_1 extends Component {
     );
 
     return (
-      <BasePage
-        titleText="Are you afraid of the dark?"
-        currentPage={this.step}
-        totalPages={4}
-        contentCmp={contentCmp}
-        monsterImg="/img/page_3_monster.png"
-        buttonOptions={{
-          className: 'on-form',
-          text: 'Next',
-          onClick: this._nextPage
-        }}
-      />
+      <div>
+        <BasePage
+          titleText="Are you afraid of the dark?"
+          currentPage={this.step}
+          totalPages={4}
+          contentCmp={contentCmp}
+          monsterImg="/img/page_3_monster.png"
+          buttonOptions={{
+            className: 'on-form',
+            text: 'Next',
+            onClick: this._nextPage
+          }}
+        />
+        <ButtonNext
+          className='on-form mob'
+          text='Next'
+          onClick={this._nextPage}
+        />
+      </div>
     );
   }
 }

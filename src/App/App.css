@@ -10,3 +10,7 @@
 .hidden {
   display: none;
 }
+
+.main-container > div {
+  width: 100%;
+}

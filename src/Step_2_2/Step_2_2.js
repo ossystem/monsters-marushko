@@ -6,6 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import constants from '../constants';
 import BasePage from '../BasePage/BasePage';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import './Step_2_2.css';
 
 const styles = {
@@ -96,19 +97,27 @@ class Step_2_2 extends Component {
     );
 
     return (
-      <BasePage
-        titleText="what do you prefer?"
-        currentPage={this.step}
-        totalPages={4}
-        contentCmp={contentCmp}
-        monsterImg="/img/page_4_monster.png"
-        buttonOptions={{
-          className: 'on-form',
-          text: 'Next',
-          onClick: this._nextPage,
-          isDisabled: !this.state.selectedValues.length
-        }}
-      />
+      <div>
+        <BasePage
+          titleText="what do you prefer?"
+          currentPage={this.step}
+          totalPages={4}
+          contentCmp={contentCmp}
+          monsterImg="/img/page_4_monster.png"
+          buttonOptions={{
+            className: 'on-form',
+            text: 'Next',
+            onClick: this._nextPage,
+            isDisabled: !this.state.selectedValues.length
+          }}
+        />
+        <ButtonNext
+          className='on-form mob'
+          text='Next'
+          onClick={this._nextPage}
+          isDisabled={!this.state.selectedValues.length}
+        />
+      </div>
     );
   }
 }

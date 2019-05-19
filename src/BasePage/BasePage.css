@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 55px;
   width: 100%;
 }
 
@@ -14,8 +15,22 @@
   width: 100%;
 }
 
-.page-container .top-wrapper .logo {
-  height: 125px;
+.page-container .top-wrapper .top-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 420px;
+}
+
+.page-container .top-wrapper .top-logo {
+  width: 100%;
+}
+
+.page-container .top-wrapper .top-logo-label {
+  color: #abd48b;
+  font: 24px Arial, sans-serif;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .page-container .form-wrapper {
@@ -43,6 +58,7 @@
 }
 
 .page-container .form-wrapper .monster-img-wrapper .monster-img {
+  align-self: end;
   margin: auto 0 0 0;
   max-height: 100%;
   max-width: 100%;
@@ -77,4 +93,64 @@
   bottom: 30px;
   position: absolute;
   right: 30px;
+}
+
+@media screen and (max-width: 320px) {
+  .page-container {
+    margin-bottom: 40px;
+    width: 310px;
+  }
+
+  .page-container .top-wrapper {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .page-container .top-wrapper .top-logo-wrapper {
+    width: 100%;
+  }
+
+  .page-container .top-wrapper .top-logo {
+    height: initial;
+    margin: 40px 50px 15px;
+    width: 220px;
+  }
+
+  .page-container .top-wrapper .top-logo-label {
+    color: #abd48b;
+    font: 22px Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+  }
+
+  .page-container .form-wrapper {
+    height: 500px;
+    margin: 210px auto 0;
+    width: 300px;
+  }
+
+  .page-container .form-wrapper .mob {
+    display: block;
+  }
+
+  .page-container .form-wrapper .monster-img-wrapper {
+    display: flex;
+    justify-content: center;
+    max-height: 175px;
+    top: -175px;
+  }
+
+  .page-container .form-wrapper .paginator {
+    left: 0;
+  }
+
+  .page-container .form-wrapper .page-title {
+    font: 30px Arial, sans-serif;
+    left: 10px;
+    top: 190px;
+  }
+
+  .page-container .main-button {
+    display: none;
+  }
 }

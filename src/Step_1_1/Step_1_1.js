@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import BasePage from '../BasePage/BasePage';
+import ButtonNext from '../ButtonNext/ButtonNext';
 import constants from '../constants';
 import './Step_1_1.css';
 
@@ -100,20 +101,28 @@ class Step_1_1 extends Component {
     );
 
     return (
-      <BasePage
-        titleText="Start by Signup"
-        currentPage={1}
-        totalPages={4}
-        contentCmp={contentCmp}
-        monsterImg="/img/page_2_monster.png"
-        needToHideLogout={true}
-        buttonOptions={{
-          className: 'on-form',
-          text: 'Next',
-          onClick: this._sendAuthRequest,
-          isDisabled: !this.state.formIsValid
-        }}
-      />
+      <div>
+        <BasePage
+          titleText="Start by Signup"
+          currentPage={1}
+          totalPages={4}
+          contentCmp={contentCmp}
+          monsterImg="/img/page_2_monster.png"
+          needToHideLogout={true}
+          buttonOptions={{
+            className: 'on-form',
+            text: 'Next',
+            onClick: this._sendAuthRequest,
+            isDisabled: !this.state.formIsValid
+          }}
+        />
+        <ButtonNext
+          className='on-form mob'
+          text='Next'
+          onClick={this._sendAuthRequest}
+          isDisabled={!this.state.formIsValid}
+        />
+      </div>
     );
   }
 }

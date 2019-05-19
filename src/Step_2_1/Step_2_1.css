@@ -7,3 +7,11 @@
 .page-container .form-wrapper .radio-group-2-1 .radio-label span {
   font: 18px Arial, sans-serif;
 }
+
+@media screen and (max-width: 320px) {
+  .page-container .form-wrapper .radio-group-2-1  {
+    left: 10px;
+    width: 300px;
+    top: 280px;
+  }
+}
