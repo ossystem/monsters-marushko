@@ -37,7 +37,7 @@ class BasePage extends Component {
     const logOutBtnClasses = 'on-form white-btn' + (needToHideLogout ? ' hidden' : '');
 
     return (
-      <div className="page-container">
+      <div className="base-page-container">
         <div className="top-wrapper">
           <div className="top-logo-wrapper">
             <img className="top-logo" src="/img/logo2.png" alt=""/>

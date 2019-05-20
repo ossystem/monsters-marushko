@@ -1,28 +1,28 @@
-.page-container .form-wrapper .text-field {
+.base-page-container .form-wrapper .text-field {
   left: 80px;
   position: absolute;
   width: 330px;
 }
 
-.page-container .form-wrapper .email {
+.base-page-container .form-wrapper .email {
   top: 375px;
 }
 
-.page-container .form-wrapper .password {
+.base-page-container .form-wrapper .password {
   top: 450px;
 }
 
 @media screen and (max-width: 320px) {
-  .page-container .form-wrapper .text-field {
+  .base-page-container .form-wrapper .text-field {
     left: 10px;
     width: 280px;
   }
 
-  .page-container .form-wrapper .email {
+  .base-page-container .form-wrapper .email {
     top: 275px;
   }
 
-  .page-container .form-wrapper .password {
+  .base-page-container .form-wrapper .password {
     top: 350px;
   }
 }

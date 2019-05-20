@@ -19,7 +19,7 @@ class ResultsPage extends Component {
     });
 
     return (
-      <div className="page-container">
+      <div className="results-page-container">
         <div className="top-wrapper">
           <div className="top-logo-wrapper">
             <img className="top-logo" src="/img/logo2.png" alt=""/>
@@ -28,17 +28,30 @@ class ResultsPage extends Component {
             </div>
           </div>
         </div>
-        <div className="page-title">Excellent, congratulations, you're a monster</div>
-        <div className="page-title mob">Excellent,&#10;congratulations,&#10;you're a monster</div>
+        <div className="page-title normal">Excellent, congratulations, you're a monster</div>
+        <div className="page-title mob">Excellent,<br/>congratulations,<br/>you're a monster</div>
         <div className="results-content">
-          <div className="form-wrapper">
-            <div className="paginator">You'r</div>
-            <div className="answers-points">
-              {answersCmp}
+          <div className="mob">
+            <div className="monster-img-wrapper">
+              <img className="monster-img" src="/img/page_9_monster.png" alt=""/>
+            </div>
+            <div className="form-wrapper">
+              <div className="paginator">You'r</div>
+              <div className="answers-points">
+                {answersCmp}
+              </div>
             </div>
           </div>
-          <div className="monster-img-wrapper">
-            <img className="monster-img" src="/img/page_9_monster.png" alt=""/>
+          <div className="normal">
+            <div className="form-wrapper">
+              <div className="paginator">You'r</div>
+              <div className="answers-points">
+                {answersCmp}
+              </div>
+            </div>
+            <div className="monster-img-wrapper">
+              <img className="monster-img" src="/img/page_9_monster.png" alt=""/>
+            </div>
           </div>
         </div>
       </div>

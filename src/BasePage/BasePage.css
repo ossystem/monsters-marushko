@@ -1,4 +1,4 @@
-.page-container {
+.base-page-container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.page-container .top-wrapper {
+.base-page-container .top-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,25 +15,25 @@
   width: 100%;
 }
 
-.page-container .top-wrapper .top-logo-wrapper {
+.base-page-container .top-wrapper .top-logo-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 420px;
 }
 
-.page-container .top-wrapper .top-logo-wrapper .top-logo {
+.base-page-container .top-wrapper .top-logo-wrapper .top-logo {
   width: 100%;
 }
 
-.page-container .top-wrapper .top-logo-wrapper .top-logo-label {
+.base-page-container .top-wrapper .top-logo-wrapper .top-logo-label {
   color: #abd48b;
   font: 24px Arial, sans-serif;
   margin-top: 20px;
   text-align: center;
 }
 
-.page-container .form-wrapper {
+.base-page-container .form-wrapper {
   border: 1px solid #e3e3e3;
   border-radius: 5px;
   box-shadow: 0 15px 45px rgba(0,0,0,0.07);
@@ -46,7 +46,7 @@
   z-index: 10;
 }
 
-.page-container .form-wrapper .monster-img-wrapper {
+.base-page-container .form-wrapper .monster-img-wrapper {
   display: flex;
   height: 100%;
   max-height: 300px;
@@ -57,14 +57,14 @@
   top: -300px;
 }
 
-.page-container .form-wrapper .monster-img-wrapper .monster-img {
+.base-page-container .form-wrapper .monster-img-wrapper .monster-img {
   align-self: end;
   margin: auto 0 0 0;
   max-height: 100%;
   max-width: 100%;
 }
 
-.page-container .form-wrapper .paginator {
+.base-page-container .form-wrapper .paginator {
   align-items: center;
   background-color: #8cbe82;
   border-radius: 5px;
@@ -81,7 +81,7 @@
   z-index: 20;
 }
 
-.page-container .form-wrapper .page-title {
+.base-page-container .form-wrapper .page-title {
   font: 64px Arial, sans-serif;
   left: 80px;
   position: absolute;
@@ -89,68 +89,68 @@
   white-space: pre-wrap;
 }
 
-.page-container .form-wrapper .on-form {
+.base-page-container .form-wrapper .on-form {
   bottom: 30px;
   position: absolute;
   right: 30px;
 }
 
 @media screen and (max-width: 320px) {
-  .page-container {
+  .base-page-container {
     margin-bottom: 40px;
     width: 310px;
   }
 
-  .page-container .top-wrapper {
+  .base-page-container .top-wrapper {
     flex-direction: column;
     margin-top: 0;
   }
 
-  .page-container .top-wrapper .top-logo-wrapper {
+  .base-page-container .top-wrapper .top-logo-wrapper {
     width: 100%;
   }
 
-  .page-container .top-wrapper .top-logo-wrapper .top-logo {
+  .base-page-container .top-wrapper .top-logo-wrapper .top-logo {
     height: initial;
     margin: 40px 50px 15px;
     width: 220px;
   }
 
-  .page-container .top-wrapper .top-logo-wrapper .top-logo-label {
+  .base-page-container .top-wrapper .top-logo-wrapper .top-logo-label {
     color: #abd48b;
     font: 22px Arial, sans-serif;
     margin: 0;
     text-align: center;
   }
 
-  .page-container .form-wrapper {
+  .base-page-container .form-wrapper {
     height: 500px;
     margin: 210px auto 0;
     width: 300px;
   }
 
-  .page-container .form-wrapper .mob {
+  .base-page-container .form-wrapper .mob {
     display: block;
   }
 
-  .page-container .form-wrapper .monster-img-wrapper {
+  .base-page-container .form-wrapper .monster-img-wrapper {
     display: flex;
     justify-content: center;
     max-height: 175px;
     top: -175px;
   }
 
-  .page-container .form-wrapper .paginator {
+  .base-page-container .form-wrapper .paginator {
     left: 0;
   }
 
-  .page-container .form-wrapper .page-title {
+  .base-page-container .form-wrapper .page-title {
     font: 30px Arial, sans-serif;
     left: 10px;
-    top: 130px;
+    top: 190px;
   }
 
-  .page-container .main-button {
+  .base-page-container .main-button {
     display: none;
   }
 }

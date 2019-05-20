@@ -1,4 +1,4 @@
-.page-container .form-wrapper .slider-4-1 {
+.base-page-container .form-wrapper .slider-4-1 {
   align-items: center;
   display: flex;
   left: 80px;
@@ -6,43 +6,43 @@
   top: 415px;
 }
 
-.page-container .form-wrapper .slider-4-1 .form-label {
+.base-page-container .form-wrapper .slider-4-1 .form-label {
   color: #252525;
   font: 18px Arial, sans-serif;
   white-space: nowrap;
 }
 
-.page-container .form-wrapper .slider-4-1 .slider {
+.base-page-container .form-wrapper .slider-4-1 .slider {
   margin: 0 20px;
   width: 145px;
 }
 
-.page-container .form-wrapper .slider-4-1 .slider div > div,
-.page-container .form-wrapper .slider-4-1 .slider div > div > button {
+.base-page-container .form-wrapper .slider-4-1 .slider div > div,
+.base-page-container .form-wrapper .slider-4-1 .slider div > div > button {
   background-color: #7ec69a;
 }
 
-.page-container .form-wrapper .slider-4-1 .slider div > div > button:hover {
+.base-page-container .form-wrapper .slider-4-1 .slider div > div > button:hover {
   box-shadow: 0 0 0 9px rgba(126, 198, 154, 0.16);
 }
 
-.page-container .form-wrapper .slider-4-1 .slider div:nth-child(3) {
+.base-page-container .form-wrapper .slider-4-1 .slider div:nth-child(3) {
   background-color: #bebebe;
   opacity: 1;
 }
 
 @media screen and (max-width: 320px) {
-  .page-container .form-wrapper .slider-4-1 {
+  .base-page-container .form-wrapper .slider-4-1 {
     left: 10px;
     top: 330px;
     width: 280px;
   }
 
-  .page-container .form-wrapper .toggler {
+  .base-page-container .form-wrapper .toggler {
     margin: 0;
   }
 
-  .page-container .form-wrapper .slider-4-1 .form-label {
+  .base-page-container .form-wrapper .slider-4-1 .form-label {
     white-space: initial;
   }
 }
