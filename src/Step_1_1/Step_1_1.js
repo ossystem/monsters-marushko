@@ -22,7 +22,8 @@ class Step_1_1 extends Component {
     this.state = {
       email: '',
       password: '',
-      formIsValid: false
+      formIsFilled: false,
+      formHasErrors: false
     };
 
     this._sendAuthRequest = this.sendAuthRequest.bind(this);
@@ -48,6 +49,10 @@ class Step_1_1 extends Component {
     const {success, id_token: idToken} = responseData || {};
 
     if (!success || !idToken) {
+      this.setState({
+        formHasErrors: true
+      });
+
       return;
     }
 
@@ -63,10 +68,11 @@ class Step_1_1 extends Component {
 
   onFieldChangeValue (e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      formHasErrors: false
     }, () => {
       this.setState({
-        formIsValid: !!(this.state.email && this.state.password)
+        formIsFilled: !!(this.state.email && this.state.password)
       });
     });
   }
@@ -80,6 +86,7 @@ class Step_1_1 extends Component {
           placeholder="Your Email"
           type="text"
           name="email"
+          error={this.state.formHasErrors}
           className="text-field email"
           onChange={this._onFieldChangeValue}
           classes={{
@@ -91,6 +98,7 @@ class Step_1_1 extends Component {
           placeholder="Your password"
           type="password"
           name="password"
+          error={this.state.formHasErrors}
           className="text-field password"
           onChange={this._onFieldChangeValue}
           classes={{
@@ -113,14 +121,14 @@ class Step_1_1 extends Component {
             className: 'on-form',
             text: 'Next',
             onClick: this._sendAuthRequest,
-            isDisabled: !this.state.formIsValid
+            isDisabled: !this.state.formIsFilled
           }}
         />
         <ButtonNext
           className='mob'
           text='Next'
           onClick={this._sendAuthRequest}
-          isDisabled={!this.state.formIsValid}
+          isDisabled={!this.state.formIsFilled}
         />
       </div>
     );
