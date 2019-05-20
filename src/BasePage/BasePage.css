@@ -97,7 +97,7 @@
 
 @media screen and (max-width: 320px) {
   .base-page-container {
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     width: 310px;
   }
 

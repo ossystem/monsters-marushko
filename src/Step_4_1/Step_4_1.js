@@ -20,12 +20,22 @@ class Step_4_1 extends Component {
 
     this._handleChange = this.handleChange.bind(this);
     this._nextPage = this.nextPage.bind(this);
+    this._logOut = this.logOut.bind(this);
   }
 
   handleChange (e, value) {
     this.setState({
       value
     });
+  }
+
+  logOut () {
+    this.props.dispatch({
+      type: 'SET_ID_TOKEN',
+      value: null
+    });
+
+    this.props.history.push('/questions/1/1');
   }
 
   async nextPage () {
@@ -85,9 +95,14 @@ class Step_4_1 extends Component {
           }}
         />
         <ButtonNext
-          className='on-form green-btn mob'
+          className='green-btn mob'
           text='Submit'
           onClick={this._nextPage}
+        />
+        <ButtonNext
+          className='white-btn mob'
+          text='Log out'
+          onClick={this._logOut}
         />
       </div>
     );

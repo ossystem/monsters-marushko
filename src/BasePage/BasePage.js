@@ -13,8 +13,6 @@ class BasePage extends Component {
   }
 
   logOut () {
-    localStorage.removeItem('id_token');
-
     this.props.dispatch({
       type: 'SET_ID_TOKEN',
       value: null

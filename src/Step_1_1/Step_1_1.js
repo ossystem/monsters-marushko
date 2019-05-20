@@ -117,7 +117,7 @@ class Step_1_1 extends Component {
           }}
         />
         <ButtonNext
-          className='on-form mob'
+          className='mob'
           text='Next'
           onClick={this._sendAuthRequest}
           isDisabled={!this.state.formIsValid}

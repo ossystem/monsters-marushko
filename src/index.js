@@ -14,6 +14,10 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'SET_ID_TOKEN':
+      if (!action.idToken) {
+        localStorage.removeItem('id_token');
+      }
+
       newState.idToken = action.idToken;
       break;
     case 'CHANGE_ANSWERS':

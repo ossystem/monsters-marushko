@@ -34,6 +34,7 @@ class Step_2_2 extends Component {
 
     this._handleChange = this.handleChange.bind(this);
     this._nextPage = this.nextPage.bind(this);
+    this._logOut = this.logOut.bind(this);
   }
 
   handleChange (value) {
@@ -68,6 +69,15 @@ class Step_2_2 extends Component {
     });
 
     this.props.history.push('/questions/3/1');
+  }
+
+  logOut () {
+    this.props.dispatch({
+      type: 'SET_ID_TOKEN',
+      value: null
+    });
+
+    this.props.history.push('/questions/1/1');
   }
 
   render () {
@@ -112,10 +122,15 @@ class Step_2_2 extends Component {
           }}
         />
         <ButtonNext
-          className='on-form mob'
+          className='mob'
           text='Next'
           onClick={this._nextPage}
           isDisabled={!this.state.selectedValues.length}
+        />
+        <ButtonNext
+          className='white-btn mob'
+          text='Log out'
+          onClick={this._logOut}
         />
       </div>
     );
