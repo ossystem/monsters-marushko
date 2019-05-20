@@ -15,7 +15,7 @@
 @media screen and (max-width: 320px) {
   .page-container .form-wrapper .text-field {
     left: 10px;
-    width: 300px;
+    width: 280px;
   }
 
   .page-container .form-wrapper .email {

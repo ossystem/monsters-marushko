@@ -20,13 +20,16 @@ class ResultsPage extends Component {
 
     return (
       <div className="page-container">
-        <div className="top-logo-wrapper">
-          <img className="top-logo" src="/img/logo2.png" alt=""/>
-          <div className="top-logo-label">
-            Found your monsters
+        <div className="top-wrapper">
+          <div className="top-logo-wrapper">
+            <img className="top-logo" src="/img/logo2.png" alt=""/>
+            <div className="top-logo-label">
+                Found your monsters
+            </div>
           </div>
         </div>
         <div className="page-title">Excellent, congratulations, you're a monster</div>
+        <div className="page-title mob">Excellent,&#10;congratulations,&#10;you're a monster</div>
         <div className="results-content">
           <div className="form-wrapper">
             <div className="paginator">You'r</div>

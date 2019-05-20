@@ -5,7 +5,8 @@
   justify-content: center;
   width: 100%;
 }
-.page-container .top-logo-wrapper {
+
+.page-container .top-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,13 +14,18 @@
   width: 100%;
 }
 
-.page-container .top-logo-wrapper .top-logo {
-  align-self: end;
-  margin: 75px 0 60px;
-  width: 415px;
+.page-container .top-wrapper .top-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 420px;
 }
 
-.page-container .top-logo-wrapper .top-logo-label {
+.page-container .top-wrapper .top-logo-wrapper .top-logo {
+  width: 100%;
+}
+
+.page-container .top-wrapper .top-logo-wrapper .top-logo-label {
   color: #abd48b;
   font: 24px Arial, sans-serif;
   margin-top: 20px;
@@ -27,7 +33,9 @@
 }
 
 .page-container .page-title {
+  color: rgba(0, 0, 0, 0.87);
   font: 64px Arial, sans-serif;
+  margin-top: 60px;
   white-space: pre-wrap;
 }
 
@@ -97,4 +105,40 @@
   margin-bottom: 10px;
   text-align: center;
   width: 120px;
+}
+
+.page-container .mob {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .page-container .mob {
+    display: block;
+  }
+
+  .page-container .top-wrapper {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .page-container .top-wrapper .top-logo-wrapper {
+    width: 100%;
+  }
+
+  .page-container .top-wrapper .top-logo-wrapper .top-logo {
+    height: initial;
+    margin: 40px 50px 15px;
+    width: 220px;
+  }
+
+  .page-container .top-wrapper .top-logo-wrapper .top-logo-label {
+    color: #abd48b;
+    font: 22px Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+  }
+
+  .page-container .page-title {
+    font: 22px Arial, sans-serif;
+  }
 }
